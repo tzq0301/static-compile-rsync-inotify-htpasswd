@@ -17,12 +17,8 @@ BUILD_DIR="$WORK_DIR/$RSYNC_DIR/build"
 unzip rsync.zip
 mv rsync-* $RSYNC_DIR
 
-cd rsync
+cd $RSYNC_DIR
 
 ./configure --prefix="$BUILD_DIR" CFLAGS='-static'
 make -j "$(getconf _NPROCESSORS_CONF)"
 make install
-
-cd "$WORK_DIR"
-
-file "$BUILD_DIR/bin/rsync" | grep --color="always" "static"

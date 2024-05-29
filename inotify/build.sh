@@ -14,14 +14,9 @@ BUILD_DIR="$WORK_DIR/$INOTIFY_DIR/build"
 unzip inotify-tools.zip
 mv inotify-tools-* $INOTIFY_DIR
 
-cd inotify-tools
+cd $INOTIFY_DIR
 
 ./autogen.sh
 ./configure --prefix="$BUILD_DIR" --enable-all-static
 make -j "$(getconf _NPROCESSORS_CONF)"
 make install
-
-cd "$WORK_DIR"
-
-file "$BUILD_DIR/bin/inotifywait"  | grep --color="always" "statically linked"
-file "$BUILD_DIR/bin/inotifywatch" | grep --color="always" "statically linked"

@@ -3,3 +3,6 @@ inotify/bin/
 
 rsync/rsync/
 rsync/bin/
+
+htpasswd/httpd/
+htpasswd/bin/
