@@ -1,2 +1,5 @@
 inotify/inotify-tools/
 inotify/bin/
+
+rsync/rsync/
+rsync/bin/

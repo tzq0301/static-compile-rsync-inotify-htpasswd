@@ -1,4 +1,4 @@
-FROM alpine
+FROM ubuntu
 
 WORKDIR /build
 
@@ -6,6 +6,6 @@ VOLUME /build/inotify-tools/build/bin
 
 COPY . .
 
-RUN apk add --no-cache g++ make autoconf automake libtool file
+RUN apt update && apt install --no-install-recommends -y g++ make autoconf automake libtool file unzip
 
 RUN sh build.sh
