@@ -5,8 +5,3 @@ rsync/rsync
 rsync/bin
 
 htpasswd/bin
-
-only-htpasswd/apr
-only-htpasswd/apr-util
-only-htpasswd/htpasswd
-only-htpasswd/httpd
