@@ -16,4 +16,4 @@ source_files=(
 
 output=htpasswd
 
-gcc -static "${source_files[@]}" -o "$BIN_DIR/$output" -I/usr/include/apr-1.0 -I/usr/include/apache2 -L/usr/lib/x86_64-linux-gnu -lapr-1 -laprutil-1 -luuid -lcrypt
+gcc -static "${source_files[@]}" -o "$BIN_DIR/$output" -I/usr/include/apr-1.0 -I/usr/include/apache2 "-L/usr/lib/$(uname -m)-linux-gnu" -lapr-1 -laprutil-1 -luuid -lcrypt
