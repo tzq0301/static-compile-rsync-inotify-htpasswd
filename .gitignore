@@ -1,8 +1,12 @@
-inotify/inotify-tools/
-inotify/bin/
+inotify/inotify-tools
+inotify/bin
 
-rsync/rsync/
-rsync/bin/
+rsync/rsync
+rsync/bin
 
-htpasswd/httpd/
-htpasswd/bin/
+htpasswd/bin
+
+only-htpasswd/apr
+only-htpasswd/apr-util
+only-htpasswd/htpasswd
+only-htpasswd/httpd

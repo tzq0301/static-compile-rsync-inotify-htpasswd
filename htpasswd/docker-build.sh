@@ -10,6 +10,6 @@ docker build -t $NAME .
 
 docker run --name $NAME $NAME
 
-docker cp $NAME:/build/httpd/static/bin "$PWD"
+docker cp $NAME:/build/htpasswd/bin "$PWD"
 
 docker rm $NAME

@@ -14,6 +14,8 @@ WORK_DIR=$PWD
 RSYNC_DIR=rsync
 BUILD_DIR="$WORK_DIR/$RSYNC_DIR/build"
 
+rm -rf $RSYNC_DIR || true
+
 unzip rsync.zip
 mv rsync-* $RSYNC_DIR
 

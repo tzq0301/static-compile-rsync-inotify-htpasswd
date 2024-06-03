@@ -3,20 +3,17 @@
 set -e
 
 WORK_DIR=$PWD
-HTPASSWD_DIR=httpd
-BUILD_DIR="$WORK_DIR/$HTPASSWD_DIR/static"
+HTPASSWD_DIR="$WORK_DIR/htpasswd"
+BIN_DIR="$HTPASSWD_DIR/bin"
 
-tar -xf httpd-2.4.59.tar.bz2
-mv httpd-2.4.59 $HTPASSWD_DIR
+mkdir -p "$BIN_DIR"
 
-tar -xf apr-1.7.4.tar.gz -C $HTPASSWD_DIR/srclib
-mv $HTPASSWD_DIR/srclib/apr-1.7.4 $HTPASSWD_DIR/srclib/apr
+source_files=(
+  "$HTPASSWD_DIR/htpasswd.c"
+  "$HTPASSWD_DIR/passwd_common.c"
+  "$HTPASSWD_DIR/charset.c"
+)
 
-tar -xf apr-util-1.6.3.tar.gz -C $HTPASSWD_DIR/srclib
-mv $HTPASSWD_DIR/srclib/apr-util-1.6.3 $HTPASSWD_DIR/srclib/apr-util
+output=htpasswd
 
-cd $HTPASSWD_DIR
-
-./configure --prefix="$BUILD_DIR" --enable-static-support --enable-static-htpasswd --with-included-apr --enable-modules=all
-make -j "$(getconf _NPROCESSORS_CONF)"
-make install
+gcc -static "${source_files[@]}" -o "$BIN_DIR/$output" -I/usr/include/apr-1.0 -I/usr/include/apache2 -L/usr/lib/x86_64-linux-gnu -lapr-1 -laprutil-1 -luuid -lcrypt
