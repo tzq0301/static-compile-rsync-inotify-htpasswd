@@ -1,7 +1,11 @@
-inotify/inotify-tools
-inotify/bin
-
-rsync/rsync
-rsync/bin
-
 htpasswd/bin
+
+chrony/bin
+chrony/chrony
+chrony/sbin
+
+inotify/bin
+inotify/inotify-tools
+
+rsync/bin
+rsync/rsync
