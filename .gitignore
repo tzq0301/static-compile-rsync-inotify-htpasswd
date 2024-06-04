@@ -1,4 +1,9 @@
+htpasswd/apr
+htpasswd/apr-util
 htpasswd/bin
+htpasswd/htpasswd
+htpasswd/htpasswd.*.bak
+htpasswd/httpd
 
 chrony/bin
 chrony/chrony

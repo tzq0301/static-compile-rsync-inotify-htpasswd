@@ -6,6 +6,7 @@ WORK_DIR=$PWD
 HTPASSWD_DIR="$WORK_DIR/htpasswd"
 BIN_DIR="$HTPASSWD_DIR/bin"
 
+rm -rf "$BIN_DIR" || true
 mkdir -p "$BIN_DIR"
 
 source_files=(
