@@ -79,6 +79,7 @@ function copy_file() {
     cp "$file" "$HTPASSWD_DIR"
   done
 
+  # #include "../apr_private_common.h"  ->  #include "apr_private_common.h"
   sed -i '.bak' 's|\.\./||g' "$HTPASSWD_DIR/apr_private.h"
 }
 
