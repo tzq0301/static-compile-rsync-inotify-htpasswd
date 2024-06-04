@@ -3,7 +3,7 @@
 set -e
 
 WORK_DIR=$PWD
-HTPASSWD_DIR="$WORK_DIR/htpasswd"
+HTPASSWD_DIR="${1:-$WORK_DIR/htpasswd.bak}"
 BIN_DIR="$HTPASSWD_DIR/bin"
 
 rm -rf "$BIN_DIR" || true

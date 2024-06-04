@@ -18,10 +18,6 @@ HTTPD_DIR=$WORK_DIR/$HTTPD_DIRNAME
 
 HTPASSWD_DIR=$WORK_DIR/htpasswd
 
-if [[ -d "$HTPASSWD_DIR" ]]; then
-  cp -r "$HTPASSWD_DIR" "$HTPASSWD_DIR.$(date '+%Y%m%d%H%M%S').bak"
-fi
-
 rm -rf "$APR_DIR" "$APR_UTIL_DIR" "$HTTPD_DIR" "$HTPASSWD_DIR"
 
 tar -xf "$APR_TARNAME.tar.gz"      && mv "$APR_TARNAME"      "$APR_DIRNAME"
@@ -94,4 +90,4 @@ build_httpd
 
 copy_file
 
-bash docker-build.sh
+bash docker-build.sh "$HTPASSWD_DIR"
