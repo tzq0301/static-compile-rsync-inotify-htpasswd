@@ -3,16 +3,17 @@
 set -e
 
 WORK_DIR=$PWD
-HTPASSWD_DIR="${1:-$WORK_DIR/htpasswd.bak}"
+HTPASSWD_SRC="${1:-$WORK_DIR/htpasswd.bak}"
+HTPASSWD_DIR="$WORK_DIR/htpasswd"
 BIN_DIR="$HTPASSWD_DIR/bin"
 
 rm -rf "$BIN_DIR" || true
 mkdir -p "$BIN_DIR"
 
 source_files=(
-  "$HTPASSWD_DIR/htpasswd.c"
-  "$HTPASSWD_DIR/passwd_common.c"
-  "$HTPASSWD_DIR/charset.c"
+  "$HTPASSWD_SRC/htpasswd.c"
+  "$HTPASSWD_SRC/passwd_common.c"
+  "$HTPASSWD_SRC/charset.c"
 )
 
 output=htpasswd
